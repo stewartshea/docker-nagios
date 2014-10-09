@@ -39,10 +39,17 @@ RUN mkdir /etc/service/apache2
 COPY apache2.sh /etc/service/apache2/run
 RUN chmod +x /etc/service/apache2/run
 
-# to add apache2 deamon to runit
+# to add nagios deamon to runit
 RUN mkdir /etc/service/nagios
 COPY nagios.sh /etc/service/nagios/run
 RUN chmod +x /etc/service/nagios/run
+
+# to add postfix deamon to runit
+RUN mkdir /etc/service/postfix
+COPY postfix.sh /etc/service/postfix/run
+RUN chmod +x /etc/service/postfix/run
+COPY postfixstop.sh /etc/service/postfix/finish
+RUN chmod +x /etc/service/postfix/finish
 
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
