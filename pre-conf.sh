@@ -35,10 +35,6 @@
   make install
   
   a2enmod cgi
-  # need to pass password .. with no interactive
-  htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
-  
-  # need to add this to file /etc/apache2/sites-enabled/000-default.conf
-  Include conf-available/nagios.conf
-  
+  htpasswd -b -c /usr/local/nagios/etc/htpasswd.users nagiosadmin admin
+  sed -i 's/#Include.*/Include conf-available\/nagios.conf/' /etc/apache2/sites-enabled/000-default.conf
   rm -rf /tmp/* /var/tmp/* 
