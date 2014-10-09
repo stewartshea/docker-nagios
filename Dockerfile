@@ -5,6 +5,9 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Set correct environment variables.
 ENV HOME /root
+# Allow postfix to install without interaction.
+RUN echo "postfix postfix/mailname string example.com" | debconf-set-selections
+RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
