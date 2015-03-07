@@ -25,6 +25,7 @@
   make install-webconf
   cp -R contrib/eventhandlers/ /usr/local/nagios/libexec/
   chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
+  chown -R nagios:nagios /usr/local/nagios/var
   /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
   ln -s /etc/init.d/nagios /etc/rcS.d/S99nagios
   
