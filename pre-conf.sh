@@ -9,13 +9,13 @@
  usermod -a -G nagcmd nagios
  usermod -a -G nagcmd www-data
  cd /tmp
- wget http://switch.dl.sourceforge.net/project/nagios/nagios-4.x/nagios-4.0.8/nagios-4.0.8.tar.gz
+ wget http://switch.dl.sourceforge.net/project/nagios/nagios-4.x/nagios-4.1.0/nagios-4.1.0rc1.tar.gz
  wget http://nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz
- tar -xvf nagios-4.0.8.tar.gz
+ tar -xvf nagios-4.1.0rc1.tar.gz
  tar -xvf nagios-plugins-2.0.3.tar.gz
  
  #installing nagios
- cd /tmp/nagios-4.0.8
+ cd /tmp/nagios-4.1.0rc1
   ./configure --with-nagios-group=nagios --with-command-group=nagcmd --with-mail=/usr/sbin/sendmail --with-httpd_conf=/etc/apache2/conf-available
   make all
   make install
@@ -33,6 +33,11 @@
   ./configure --with-nagios-user=nagios --with-nagios-group=nagios --enable-perl-modules --enable-extra-opts
   make
   make install
+  
+  #to fix error relate to ip address of container apache2
+  echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
+  ln -s /etc/apache2/conf-available/fqdn.conf /etc/apache2/conf-enabled/fqdn.conf
+
   
   a2enmod cgi
   htpasswd -b -c /usr/local/nagios/etc/htpasswd.users nagiosadmin admin
