@@ -11,9 +11,11 @@
  cd /tmp
  wget http://switch.dl.sourceforge.net/project/nagios/nagios-4.x/nagios-4.1.0/nagios-4.1.0rc1.tar.gz
  wget http://nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz
+ wget http://sourceforge.net/projects/nagios/files/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz
  tar -xvf nagios-4.1.0rc1.tar.gz
  tar -xvf nagios-plugins-2.0.3.tar.gz
- 
+ tar -xvf nrpe-2.15.tar.gz
+
  #installing nagios
  cd /tmp/nagios-4.1.0rc1
   ./configure --with-nagios-group=nagios --with-command-group=nagcmd --with-mail=/usr/sbin/sendmail --with-httpd_conf=/etc/apache2/conf-available
@@ -36,6 +38,11 @@
   ./configure --with-nagios-user=nagios --with-nagios-group=nagios --enable-perl-modules --enable-extra-opts
   make
   make install
+
+  cd /tmp/nrpe-2.15/
+  ./configure --with-nrpe-user=nagios --with-nrpe-group=nagios --with-nagios-user=nagios --with-nagios-group=nagios  --with-ssl=/usr/bin/openssl --with-ssl-lib=/usr/lib/x86_64-linux-gnu
+  make all
+  make install-plugin
   
   #to fix error relate to ip address of container apache2
   echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
