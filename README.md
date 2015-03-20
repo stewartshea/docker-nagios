@@ -16,3 +16,5 @@ to replace password :
 
 htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
+### Update (2015/03/19)
+Added NRPE checks support

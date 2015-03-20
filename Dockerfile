@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y -q  wget \
                     libgd2-xpm-dev \
                     libapache2-mod-php5 \
                     postfix \
+                    libssl0.9.8 \
+                    libssl-dev \
                     && rm -R /var/www/html
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
@@ -52,8 +54,9 @@ RUN chmod +x /etc/service/postfix/finish
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
 COPY pre-conf.sh /sbin/pre-conf
-RUN chmod +x /sbin/pre-conf \
-    && /bin/bash -c /sbin/pre-conf \
+
+RUN chmod +x /sbin/pre-conf 
+RUN /bin/bash -c /sbin/pre-conf \
     && rm /sbin/pre-conf
 
 ##scritp that can be running from the outside using docker-bash tool ...
