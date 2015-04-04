@@ -15,6 +15,9 @@
  tar -xvf nagios-4.1.0rc1.tar.gz
  tar -xvf nagios-plugins-2.0.3.tar.gz
  tar -xvf nrpe-2.15.tar.gz
+ rm nagios-4.1.0rc1.tar.gz
+ rm nagios-plugins-2.0.3.tar.gz
+ rm nrpe-2.15.tar.gz
 
  #installing nagios
  cd /tmp/nagios-4.1.0rc1
