@@ -1,5 +1,5 @@
 #name of container: docker-nagios
-#versison of container: 0.5.2
+#versison of container: 0.5.3
 FROM quantumobject/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
@@ -31,9 +31,7 @@ RUN mkdir -p /etc/my_init.d
 COPY startup.sh /etc/my_init.d/startup.sh
 RUN chmod +x /etc/my_init.d/startup.sh
 
-
 ##Adding Deamons to containers
-
 # to add apache2 deamon to runit
 RUN mkdir /etc/service/apache2
 COPY apache2.sh /etc/service/apache2/run
@@ -54,7 +52,6 @@ RUN chmod +x /etc/service/postfix/finish
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
 COPY pre-conf.sh /sbin/pre-conf
-
 RUN chmod +x /sbin/pre-conf 
 RUN /bin/bash -c /sbin/pre-conf \
     && rm /sbin/pre-conf
@@ -65,17 +62,9 @@ COPY backup.sh /sbin/backup
 RUN chmod +x /sbin/backup
 VOLUME /var/backups
 
-
-#add files and script that need to be use for this container
-#include conf file relate to service/daemon 
-#additionsl tools to be use internally 
-
 # to allow access from outside of the container  to the container service
 # at that ports need to allow access from firewall if need to access it outside of the server. 
 EXPOSE 80 25
-
-#creatian of volume 
-#VOLUME 
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
