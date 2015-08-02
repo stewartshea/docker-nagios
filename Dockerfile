@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     postfix \
                     libssl0.9.8 \
                     libssl-dev \
+                    unzip \
                     && rm -R /var/www/html \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
