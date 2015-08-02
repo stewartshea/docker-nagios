@@ -1,6 +1,6 @@
 # docker-nagios
 
-Docker container for [Nagios 4.1.0rc1][3]
+Docker container for [Nagios 4.1.0rc2][3]
 
 "Nagios Is The Industry Standard In IT Infrastructure Monitoring. Achieve instant awareness of IT infrastructure problems, so downtime doesn't adversely affect your business.Nagios offers complete monitoring and alerting for servers, switches, applications, and services."
 
@@ -11,7 +11,7 @@ Docker container for [Nagios 4.1.0rc1][3]
 To install docker in Ubuntu 14.04 use the commands:
 
     $ sudo apt-get update
-    $ sudo apt-get install docker.io
+    $ wget -qO- https://get.docker.com/ | sh
 
  To install docker in other operating systems check [docker online documentation][4]
 
