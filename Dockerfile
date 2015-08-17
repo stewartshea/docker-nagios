@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y -q  wget \
                     apache2 \
                     apache2-utils \
                     php5-gd \
-                    libgd2-xpm-dev \
                     libapache2-mod-php5 \
                     postfix \
                     libssl0.9.8 \
