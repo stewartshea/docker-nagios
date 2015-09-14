@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     build-essential \
                     apache2 \
                     apache2-utils \
+                    iputils-ping \
                     php5-gd \
                     libapache2-mod-php5 \
                     postfix \
