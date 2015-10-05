@@ -1,6 +1,6 @@
 #name of container: docker-nagios
-#versison of container: 0.5.4
-FROM angelrr7702/docker-baseimage
+#versison of container: 0.5.5
+FROM quantumobject/docker-baseimage:15.10
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Allow postfix to install without interaction.
