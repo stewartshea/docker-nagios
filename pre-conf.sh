@@ -8,6 +8,7 @@
  groupadd --system nagcmd
  usermod -a -G nagcmd nagios
  usermod -a -G nagcmd www-data
+ usermod -G nagios www-data
  cd /tmp
  wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.1.1.tar.gz
  wget http://nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
