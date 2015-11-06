@@ -26,6 +26,7 @@ login : nagiosadmin   passdword: admin  please replace it after install.
 to access the container please use :
 
     $ docker exec -it container_id  /bin/bash
+    $ export TERM=xterm       #needed to execute some command correctly (nano,top)
 
 to replace password :
 
