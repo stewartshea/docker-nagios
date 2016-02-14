@@ -40,11 +40,11 @@ About Nagios [www.nagios.org][1]
 
 To help improve this container [quantumobject/docker-nagios][5]
 
-For additional info about us and our projects check our site [www.quantumobject.com][6]
+For additional info about us and our projects check our site [www.quantumobject.org][6]
 
 [1]:http://www.nagios.org/
 [2]:https://www.docker.com
 [3]:http://www.nagios.org/download
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-nagios
-[6]:http://www.quantumobject.com/
+[6]:https://www.quantumobject.org/
