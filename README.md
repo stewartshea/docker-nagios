@@ -21,7 +21,7 @@ To run container use the command below:
 
     $ docker run -d -p 25 -p 80 quantumobject/docker-nagios
 
-login : nagiosadmin   passdword: admin  please replace it after install.
+login : nagiosadmin   password: admin  please replace it after install.
 
 to access the container please use :
 
