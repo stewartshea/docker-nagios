@@ -48,7 +48,7 @@ COPY nagios.sh /etc/service/nagios/run
 COPY nagios-log.sh /etc/service/nagios/log/run
 RUN chmod +x /etc/service/nagios/run /etc/service/nagios/log/run \
     && cp /var/log/cron/config /var/log/nagios/ \
-    && chown -R nagios /var/log/nagios
+    && chown -R root /var/log/nagios
 
 # to add postfix deamon to runit
 RUN mkdir /etc/service/postfix /var/log/postfix ; sync 
