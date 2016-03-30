@@ -21,7 +21,7 @@ To run container use the command below:
 
     $ docker run -d -p 25 -p 80 quantumobject/docker-nagios
 
-login : nagiosadmin   password: admin  please replace it after install.
+login : nagiosadmin   password: admin  please replace it after install. 
 
 to access the container please use :
 
@@ -32,6 +32,8 @@ to replace password :
     $ htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
 Update (2015/03/19) Added NRPE checks support.
+
+note: to access site is http://server_ip:external_container_port/nagios/
 
 ## More Info
 
