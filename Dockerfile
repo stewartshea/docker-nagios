@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     libdigest-hmac-perl \
                     libnet-snmp-perl \
                     libcrypt-des-perl \
+					mailutils \
                     && rm -R /var/www/html \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
