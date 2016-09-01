@@ -31,9 +31,9 @@ to replace password :
 
     $ htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
-Update (2015/03/19) Added NRPE checks support.
 
 note: to access site is http://server_ip:external_container_port/nagios/
+update to nrpe-3.0 
 
 ## More Info
 
