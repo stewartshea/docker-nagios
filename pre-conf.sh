@@ -12,10 +12,10 @@
  cd /tmp
  wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.2.0.tar.gz
  wget http://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz
- wget http://sourceforge.net/projects/nagios/files/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz
+ wget http://sourceforge.net/projects/nagios/files/nrpe-3.x/nrpe-3.0.tar.gz
  tar -xvf nagios-4.2.0.tar.gz
  tar -xvf nagios-plugins-2.1.2.tar.gz
- tar -xvf nrpe-2.15.tar.gz
+ tar -xvf nrpe-3.0.tar.gz
 
  #installing nagios
  cd /tmp/nagios-4.2.0
@@ -40,7 +40,7 @@
   make
   make install
 
-  cd /tmp/nrpe-2.15/
+  cd /tmp/nrpe-3.0/
   ./configure --with-nrpe-user=nagios --with-nrpe-group=nagios --with-nagios-user=nagios --with-nagios-group=nagios  --with-ssl=/usr/bin/openssl --with-ssl-lib=/usr/lib/x86_64-linux-gnu
   make all
   make install-plugin
