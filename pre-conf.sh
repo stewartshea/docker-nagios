@@ -10,15 +10,15 @@
  usermod -a -G nagcmd www-data
  usermod -G nagios www-data
  cd /tmp
- wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.2.0.tar.gz
- wget http://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz
- wget http://sourceforge.net/projects/nagios/files/nrpe-3.x/nrpe-3.0.tar.gz
- tar -xvf nagios-4.2.0.tar.gz
- tar -xvf nagios-plugins-2.1.2.tar.gz
- tar -xvf nrpe-3.0.tar.gz
+ wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.2.4.tar.gz
+ wget http://nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz
+ wget http://sourceforge.net/projects/nagios/files/nrpe-3.x/nrpe-3.0.1.tar.gz
+ tar -xvf nagios-4.2.4.tar.gz
+ tar -xvf nagios-plugins-2.1.4.tar.gz
+ tar -xvf nrpe-3.0.1.tar.gz
 
  #installing nagios
- cd /tmp/nagios-4.2.0
+ cd /tmp/nagios-4.2.4
   ./configure --with-nagios-group=nagios --with-command-group=nagcmd --with-mail=/usr/sbin/sendmail --with-httpd_conf=/etc/apache2/conf-available
   make all
   make install
@@ -35,12 +35,12 @@
   ln -s /etc/init.d/nagios /etc/rcS.d/S99nagios
   
   #installing plugins 
-  cd /tmp/nagios-plugins-2.1.2/
+  cd /tmp/nagios-plugins-2.1.4/
   ./configure --with-nagios-user=nagios --with-nagios-group=nagios --enable-perl-modules --enable-extra-opts
   make
   make install
 
-  cd /tmp/nrpe-3.0/
+  cd /tmp/nrpe-3.0.1/
   ./configure --with-nrpe-user=nagios --with-nrpe-group=nagios --with-nagios-user=nagios --with-nagios-group=nagios  --with-ssl=/usr/bin/openssl --with-ssl-lib=/usr/lib/x86_64-linux-gnu
   make all
   make install-plugin
