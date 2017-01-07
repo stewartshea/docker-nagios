@@ -1,6 +1,6 @@
 # docker-nagios
 
-Docker container for [Nagios 4.2.0][3]
+Docker container for [Nagios 4.2.4][3]
 
 "Nagios Is The Industry Standard In IT Infrastructure Monitoring. Achieve instant awareness of IT infrastructure problems, so downtime doesn't adversely affect your business.Nagios offers complete monitoring and alerting for servers, switches, applications, and services."
 
@@ -34,7 +34,8 @@ to replace password :
 
 note: to access site is http://server_ip:external_container_port/nagios/
 
-update to nrpe-3.0 
+update to nrpe-3.0.1
+update to nagios-plugins-2.1.4
 
 ## More Info
 
