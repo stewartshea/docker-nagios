@@ -12,7 +12,6 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ wily-updates multiverse" >> 
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily multiverse" >> /etc/apt/sources.list
 RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ wily multiverse" >> /etc/apt/sources.list
 
-
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
 RUN apt-get update && apt-get install -y -q  wget \
