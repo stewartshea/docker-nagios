@@ -7,6 +7,12 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 RUN echo "postfix postfix/mailname string example.com" | debconf-set-selections
 RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily-updates multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ wily-updates multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ wily multiverse" >> /etc/apt/sources.list
+
+
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
 RUN apt-get update && apt-get install -y -q  wget \
@@ -24,7 +30,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     libcrypt-des-perl \
                     mailutils \
                     snmp \
-                    snmp-mibs-downloader \
+                    lm-sensors snmp-mibs-downloader \
                     && rm -R /var/www/html \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
@@ -37,9 +43,8 @@ RUN mkdir -p /etc/my_init.d
 COPY startup.sh /etc/my_init.d/startup.sh
 RUN chmod +x /etc/my_init.d/startup.sh
 
-
 ##Get Mibs
-RUN download-mibs
+RUN /usr/bin/download-mibs
 RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
 
 ##Adding Deamons to containers
