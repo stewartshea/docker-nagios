@@ -47,6 +47,12 @@ RUN chmod +x /etc/my_init.d/startup.sh
 RUN /usr/bin/download-mibs
 RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
 
+# RUN ln -s /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libssl.so.10
+
+RUN ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86-64-linux-gnu/libssl.so.10
+
+RUN ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libcrypto.so.10
+
 ##Adding Deamons to containers
 # to add apache2 deamon to runit
 RUN mkdir -p /etc/service/apache2  /var/log/apache2 ; sync

@@ -11,10 +11,10 @@
  usermod -G nagios www-data
  cd /tmp
  wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.2.4.tar.gz
- wget http://nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz
+ wget http://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz
  wget http://sourceforge.net/projects/nagios/files/nrpe-3.x/nrpe-3.0.1.tar.gz
  tar -xvf nagios-4.2.4.tar.gz
- tar -xvf nagios-plugins-2.1.4.tar.gz
+ tar -xvf nagios-plugins-2.2.1.tar.gz
  tar -xvf nrpe-3.0.1.tar.gz
 
  #installing nagios
@@ -35,7 +35,7 @@
   ln -s /etc/init.d/nagios /etc/rcS.d/S99nagios
   
   #installing plugins 
-  cd /tmp/nagios-plugins-2.1.4/
+  cd /tmp/nagios-plugins-2.2.1/
   ./configure --with-nagios-user=nagios --with-nagios-group=nagios --enable-perl-modules --enable-extra-opts
   make
   make install
