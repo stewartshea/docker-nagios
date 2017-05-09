@@ -1,16 +1,16 @@
 #name of container: docker-nagios
 #versison of container: 0.5.5
-FROM quantumobject/docker-baseimage:15.10
+FROM quantumobject/docker-baseimage:16.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Allow postfix to install without interaction.
 RUN echo "postfix postfix/mailname string example.com" | debconf-set-selections
 RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily-updates multiverse" >> /etc/apt/sources.list
-RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ wily-updates multiverse" >> /etc/apt/sources.list
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily multiverse" >> /etc/apt/sources.list
-RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ wily multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ xenial-updates multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ xenial-updates multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ xenial multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ xenial multiverse" >> /etc/apt/sources.list
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y -q  wget \
                     apache2 \
                     apache2-utils \
                     iputils-ping \
-                    php5-gd \
-                    libapache2-mod-php5 \
+                    php7.0-gd \
+                    libapache2-mod-php7.0 \
                     postfix \
                     libssl-dev \
                     unzip \
@@ -49,8 +49,9 @@ RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
 
 # RUN ln -s /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libssl.so.10
 
-RUN ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86-64-linux-gnu/libssl.so.10
+RUN ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/libssl.so.10
 
+#Create libcrypto simlink
 RUN ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libcrypto.so.10
 
 ##Adding Deamons to containers
