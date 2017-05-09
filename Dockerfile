@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     mailutils \
                     snmp \
                     lm-sensors snmp-mibs-downloader \
+                    dnsutils \
                     && rm -R /var/www/html \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
