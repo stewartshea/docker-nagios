@@ -1,4 +1,4 @@
-[![Docker Build Statu](https://img.shields.io/docker/build/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/findarato/)
+[![Docker Build Statu](https://img.shields.io/docker/build/quantumobject/docker-nagios.svg)](https://hub.docker.com/r/quantumobject/docker-nagios/) [![Docker Automated buil](https://img.shields.io/docker/automated/quantumobject/docker-nagios.svg)](https://hub.docker.com/r/quantumobject/docker-nagios/)
 
 # docker-nagios
 
