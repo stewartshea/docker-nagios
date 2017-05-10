@@ -31,6 +31,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     snmp \
                     lm-sensors snmp-mibs-downloader \
                     dnsutils \
+                    nagios-nrpe-plugin \
                     && rm -R /var/www/html \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
@@ -49,10 +50,13 @@ RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
 
 # RUN ln -s /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libssl.so.10
 
-RUN ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/libssl.so.10
+#RUN ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/libssl.so.10
 
 #Create libcrypto simlink
-RUN ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libcrypto.so.10
+#RUN ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libcrypto.so.10
+
+
+
 
 ##Adding Deamons to containers
 # to add apache2 deamon to runit
@@ -89,6 +93,10 @@ COPY pre-conf.sh /sbin/pre-conf
 RUN chmod +x /sbin/pre-conf ; sync
 RUN /bin/bash -c /sbin/pre-conf \
     && rm /sbin/pre-conf
+
+
+##Copy plguins installed though apt to location
+RUN cp /usr/lib/nagios/plugins/check_nrpe /usr/local/nagios/libexec/ ; sync
 
 ##scritp that can be running from the outside using docker-bash tool ...
 ## for example to create backup for database with convitation of VOLUME   dockers-bash container_ID backup_mysql
