@@ -44,10 +44,10 @@ RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
     && cd nagios-plugins-gluster-master \
     && autoconf
 
-RUN cd nagios-plugins-gluster-master \
-    && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
-    && make \
-    && make install
+#RUN cd nagios-plugins-gluster-master \
+#    && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
+#    && make \
+#    && make install
 
 ##startup scripts
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't
