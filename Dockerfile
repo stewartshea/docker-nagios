@@ -37,6 +37,15 @@ RUN apt-get update && apt-get install -y -q  wget \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
 
+## Install Gluster Plugin
+RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
+    && unzip master.zip \
+    && cd nagios-plugins-gluster-master \
+    && autoconf \
+    && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
+    && make \
+    && make install
+
 ##startup scripts
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't
 #run it again ... use for conf for service ... when run the first time ...
