@@ -41,7 +41,9 @@ RUN apt-get update && apt-get install -y -q  wget \
 RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
     && unzip master.zip \
     && cd nagios-plugins-gluster-master \
-    && autoconf \
+    && autoconf
+
+RUN cd nagios-plugins-gluster-master \
     && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
     && make \
     && make install
