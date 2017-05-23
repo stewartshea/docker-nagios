@@ -42,14 +42,13 @@ RUN apt-get update && apt-get install -y -q  wget \
                     && rm -rf /var/lib/apt/lists/*
 
 ## Install Gluster Plugin
-RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
-    && unzip master.zip \
-    && cd nagios-plugins-gluster-master \
-    && ls -lha
+#RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
+#    && unzip master.zip \
+#    && cd nagios-plugins-gluster-master \
+#    && ls -lha
 
-RUN cd nagios-plugins-gluster-master \
-    && rm .gitignore \
-    && ls -lha \
+RUN git clone https://github.com/gluster/nagios-plugins-gluster.git \
+    && cd nagios-plugins-gluster \
     && autoreconf -i \
     && ls -lha \
     && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
