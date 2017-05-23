@@ -15,6 +15,7 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ xenial multiverse" >> /etc/a
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
 RUN apt-get update && apt-get install -y -q  wget \
+                    git \
                     build-essential \
                     apache2 \
                     apache2-utils \
