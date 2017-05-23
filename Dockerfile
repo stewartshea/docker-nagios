@@ -47,7 +47,8 @@ RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
     && cd nagios-plugins-gluster-master \
     && ls -lha
 
-RUN autoreconf -i \
+RUN ls -lha \
+    && autoreconf -i \
     && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
     && make \
     && make install
