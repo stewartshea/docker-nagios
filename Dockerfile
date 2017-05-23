@@ -50,6 +50,7 @@ RUN apt-get update && apt-get install -y -q  wget \
 RUN git clone https://github.com/gluster/nagios-plugins-gluster.git \
     && cd nagios-plugins-gluster \
     && git fetch --all \
+    && git describe --always \
     && autoreconf -i\
     && ls -lha \
     && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
