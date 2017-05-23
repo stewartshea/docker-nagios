@@ -48,6 +48,7 @@ RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
     && ls -lha
 
 RUN cd nagios-plugins-gluster-master \
+    && rm .gitignore \
     && ls -lha \
     && autoreconf -i \
     && ls -lha \
