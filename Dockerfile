@@ -37,6 +37,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     libtool \
                     autoconf \
                     pkg-config \
+                    autotools-dev \
                     && rm -R /var/www/html \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
