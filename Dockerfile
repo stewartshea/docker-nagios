@@ -33,6 +33,8 @@ RUN apt-get update && apt-get install -y -q  wget \
                     lm-sensors snmp-mibs-downloader \
                     dnsutils \
                     nagios-nrpe-plugin \
+                    automake \
+                    libtool \
                     autoconf \
                     && rm -R /var/www/html \
                     && apt-get clean \
@@ -43,12 +45,10 @@ RUN apt-get update && apt-get install -y -q  wget \
 RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
     && unzip master.zip \
     && cd nagios-plugins-gluster-master \
-    && autoconf
-
-#RUN cd nagios-plugins-gluster-master \
-#    && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
-#    && make \
-#    && make install
+    && autoconf \
+    && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
+    && make \
+    && make install
 
 ##startup scripts
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't
