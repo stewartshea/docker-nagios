@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     automake \
                     libtool \
                     autoconf \
+                    pkg-config \
                     && rm -R /var/www/html \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
