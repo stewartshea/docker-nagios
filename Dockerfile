@@ -49,15 +49,15 @@ RUN apt-get update && apt-get install -y -q  wget \
 #    && cd nagios-plugins-gluster-master \
 #    && ls -lha
 
-RUN git clone https://github.com/gluster/nagios-plugins-gluster.git \
-    && cd nagios-plugins-gluster \
-    && git fetch --all \
-    && git describe --always \
-    && autoreconf -i\
-    && ls -lha \
-    && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
-    && make \
-    && make install
+#RUN git clone https://github.com/gluster/nagios-plugins-gluster.git \
+#    && cd nagios-plugins-gluster \
+#    && git fetch --all \
+#    && git describe --always \
+#    && autoreconf -i\
+#    && ls -lha \
+#    && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib \
+#    && make \
+#    && make install
 
 ##startup scripts
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't
