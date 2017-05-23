@@ -44,6 +44,7 @@ RUN apt-get update && apt-get install -y -q  wget \
                     && rm -rf /var/lib/apt/lists/*
 
 ## Install Gluster Plugin
+#test 
 #RUN wget https://github.com/gluster/nagios-plugins-gluster/archive/master.zip \
 #    && unzip master.zip \
 #    && cd nagios-plugins-gluster-master \
